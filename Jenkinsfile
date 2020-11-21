@@ -18,7 +18,7 @@ pipeline {
 			}
 		}
 
-		stage('write results') {
+		stage('Write results') {
 			steps {
 				script {
 					def build = Jenkins.getInstance().getItemByFullName(env.JOB_NAME).getBuildByNumber(Integer.parseInt(env.BUILD_NUMBER));
