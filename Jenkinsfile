@@ -12,7 +12,7 @@ def group = simpleDateFormat.format(actualNow);
 pipeline {
     agent any
 	stages {
-		stage('run speed test') {
+		stage('Run speed test') {
 			steps {
 				sh 'docker run kklipsch/run-speedtest-cli | grep -E "Download:|Upload:"'
 			}
@@ -46,13 +46,13 @@ pipeline {
 			}
 		}
 		
-		stage('archive') {
+		stage('Archive') {
 			steps {
 				archiveArtifacts 'data.csv'
 			}
 		}
 		
-		stage('cleanup') {
+		stage('Cleanup') {
 			steps {
 				sh "chmod 700 delete-old-container.sh"
 				sh "./delete-old-container.sh"
