@@ -26,7 +26,7 @@ pipeline {
 					currentBuild.description = now;
 					
 					String[] lines = logContent.split(System.getProperty("line.separator"));
-					String graphData = "date,download,upload\n";
+					String graphData = "date,Download,Upload\n";
 					graphData += now + ",";
 					int i = 0;
 					for (String line : lines) {
@@ -62,7 +62,7 @@ pipeline {
 	
 	post {
 		always {
-			plot csvFileName: 'plot-856fbd0f-69e7-44df-9867-8d8f598dabeb.csv', csvSeries: [[displayTableFlag: true, exclusionValues: 'downloads,uploads', file: 'data.csv', inclusionFlag: 'OFF', url: '']], group: "${group}", style: 'line', title: "speedtest", yaxis: 'mbps', useDescr: true
+			plot csvFileName: 'plot-856fbd0f-69e7-44df-9867-8d8f598dabeb.csv', csvSeries: [[displayTableFlag: true, exclusionValues: 'downloads,uploads', file: 'data.csv', inclusionFlag: 'OFF', url: '']], group: "${group}", style: 'line', title: "Speedtest", yaxis: 'mbps', useDescr: true
 			deleteDir()
 		}
 	}
